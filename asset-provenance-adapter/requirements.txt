@@ -1,0 +1,7 @@
+numpy
+scipy
+trimesh
+shapely>=2.1
+matplotlib
+networkx
+Pillow

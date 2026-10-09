@@ -1,0 +1,35 @@
+"""Genuine local SDXL+Canny/Scribble ControlNet sketch→rich-image bridge, no API."""
+from pathlib import Path
+import argparse,hashlib,json,time,traceback,resource
+p=argparse.ArgumentParser();p.add_argument('--run-name',default='');p.add_argument('--control-kind',choices=['canny','scribble'],default='canny');p.add_argument('--prompt-file');p.add_argument('--output',required=True);p.add_argument('--ids',nargs='+',default=['fish-stroke','owl-stroke']);p.add_argument('--steps',type=int,default=28);p.add_argument('--size',type=int,default=768);p.add_argument('--scale',type=float,default=.65);p.add_argument('--seed',type=int,default=4242);a=p.parse_args();root=Path(a.output)
+import numpy as np,cv2,torch
+from PIL import Image
+from diffusers import StableDiffusionXLControlNetPipeline,ControlNetModel,AutoencoderKL
+sdrev='462165984030d82259a11f4367a4eed129e94a7b';cnrev='eb115a19a10d14909256db740ed109532ab1483c';vaerev='207b116dae70ace3637169f1ddd2434b91b3a8cd'
+cnmid='diffusers/controlnet-canny-sdxl-1.0'
+if a.control_kind=='scribble':
+ assert a.run_name, 'Scribble trial requires unique runname'
+ cnmid='xinsir/controlnet-scribble-sdxl-1.0';cnrev='0bed4973b80c2329f76e0abf4196c51dfbf9108c'
+prompts={
+ 'fish-stroke':'A beautiful detailed sculptural fish, single isolated fish in side profile facing right, same broad oval body and forked tail as the contour, pearlescent turquoise blue and silver overlapping scales, orange translucent dorsal and tail fins with delicate fin rays, clear round eye, curved gill cover and small mouth, dimensional rounded thick body, rich three-dimensional studio render with natural highlights, clean pure white background, no water, no scene, no lettering',
+ 'owl-stroke':'A beautiful detailed owl sculpture, single isolated owl facing forward, tufted pointed ears, large round amber eyes, hooked beak, layered brown and cream feathers on a rounded thick body, folded wings at its sides and two clawed feet, same silhouette and facial arrangement as the contour, rich volumetric three-dimensional studio render, clean pure white background, no branches, no scene, no lettering'
+}
+if a.prompt_file:
+ prompts.update(json.loads(Path(a.prompt_file).read_text()))
+ assert all(k in json.loads(Path(a.prompt_file).read_text()) for k in a.ids), 'External prompt file must provide every requested id'
+negative='line drawing, sketch, black outlines, flat silhouette, cartoon icon, logo, words, text, watermark, label, background landscape, multiple animals, cropped body, floating fragments, extra eyes, extra legs, extra fins, blurry, low quality'
+receipt=dict(status='loading',model='stabilityai/stable-diffusion-xl-base-1.0',model_revision=sdrev,controlnet=cnmid,control_kind=a.control_kind,conditioning_preprocess=('Canny100/200' if a.control_kind=='canny' else 'Originalgray<128 binary inverted: white source-strokes onblack, no doubled Cannyedge'),controlnet_revision=cnrev,vae='madebyollin/sdxl-vae-fp16-fix',vae_revision=vaerev,device='AppleM2UltraMPS',torch=torch.__version__,dtype='float16',steps=a.steps,size=a.size,controlnet_conditioning_scale=a.scale,seed=a.seed,negative_prompt=negative,items=[],limits=['Actual neural image generation conditioned on explicit stroke edges and authored semantic prompt, not inferred identity without prompt','Source type comes from originalinput provenance (authored or publichuman); trainingmembership unknown, no benchmarkgeneralizationclaim','Model may alter stroke details or invent unseen shape; inspect before meshing','Observed latency may overlap another MPS experiment, not an isolated benchmark'])
+if a.prompt_file:
+ receipt['prompt_file']=Path(a.prompt_file).name;receipt['prompt_file_sha256']=hashlib.sha256(Path(a.prompt_file).read_bytes()).hexdigest();receipt['limits'][0]='Actual neural image generation conditioned on stroke edges and external explicit semantic promptfile; its origin is recorded separately, no preset3Dmesh.'
+rp=root/f'controlnet-sdxl-s{a.steps}-size{a.size}-scale{a.scale}-seed{a.seed}{("-"+a.run_name) if a.run_name else ""}-receipt.json'
+def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def save():rp.write_text(json.dumps(receipt,indent=2))
+save();t=time.perf_counter();control=ControlNetModel.from_pretrained(receipt['controlnet'],revision=cnrev,torch_dtype=torch.float16,use_safetensors=True,**({'variant':'fp16'} if a.control_kind=='canny' else {'cache_dir':str(Path(__file__).parent/'.scribble-model-cache')}));vae=AutoencoderKL.from_pretrained(receipt['vae'],revision=vaerev,torch_dtype=torch.float16,use_safetensors=True);pipe=StableDiffusionXLControlNetPipeline.from_pretrained(receipt['model'],revision=sdrev,controlnet=control,vae=vae,variant='fp16',torch_dtype=torch.float16,use_safetensors=True,add_watermarker=False);pipe.to('mps');torch.mps.synchronize();receipt['model_load_including_download_seconds']=time.perf_counter()-t;receipt['status']='running';save()
+for key in a.ids:
+ row=dict(id=key,status='running',source_input=f'{key}-input.png',source_input_sha256=sha(root/f'{key}-input.png'),prompt=prompts[key]);row['effective_clip1_prompt']=pipe.tokenizer.decode(pipe.tokenizer(prompts[key],truncation=True,max_length=77)['input_ids']);row['effective_clip2_prompt']=pipe.tokenizer_2.decode(pipe.tokenizer_2(prompts[key],truncation=True,max_length=77)['input_ids']);receipt['items'].append(row);save()
+ try:
+  source=Image.open(root/f'{key}-input.png').convert('RGB').resize((a.size,a.size),Image.Resampling.LANCZOS);edges=cv2.Canny(np.asarray(source),100,200) if a.control_kind=='canny' else (np.asarray(source.convert('L'))<128).astype(np.uint8)*255;edgeimage=Image.fromarray(np.repeat(edges[:,:,None],3,axis=2));edgepath=root/f'{key}-sdxl-control-{a.control_kind}-size{a.size}{("-"+a.run_name) if a.run_name else ""}.png';edgeimage.save(edgepath);row.update(control_image=edgepath.name,control_image_sha256=sha(edgepath))
+  t=time.perf_counter();result=pipe(prompt=prompts[key],negative_prompt=negative,image=edgeimage,num_inference_steps=a.steps,controlnet_conditioning_scale=a.scale,guidance_scale=7.5,height=a.size,width=a.size,generator=torch.Generator('cpu').manual_seed(a.seed)).images[0];torch.mps.synchronize();row['generation_seconds']=time.perf_counter()-t;dst=root/f'{key}-sdxl-rich-s{a.steps}-scale{a.scale}-seed{a.seed}{("-"+a.run_name) if a.run_name else ""}.png';result.save(dst);arr=np.asarray(result);assert np.isfinite(arr).all() and arr.std()>5;row.update(status='actual-neural-sketch-to-rich-image-complete',output=dst.name,output_sha256=sha(dst),size=list(result.size),mps_current_allocated_bytes=torch.mps.current_allocated_memory(),mps_driver_allocated_bytes=torch.mps.driver_allocated_memory(),max_process_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+ except Exception as e:row.update(status='failed',error=str(e),traceback=traceback.format_exc());print(traceback.format_exc(),flush=True)
+ save();print(json.dumps(row),flush=True)
+receipt['status']='inference-complete' if all(x['status']=='actual-neural-sketch-to-rich-image-complete' for x in receipt['items']) else 'complete-with-failures';save()

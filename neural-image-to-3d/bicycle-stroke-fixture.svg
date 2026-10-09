@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewBox="0 0 768 768">
+<rect width="768" height="768" fill="white"/>
+<g stroke="#252525" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<!-- New experiment-authored 2D engineering-object stroke fixture, not a3D mesh. -->
+<circle cx="188" cy="483" r="132"/><circle cx="583" cy="483" r="132"/>
+<circle cx="188" cy="483" r="118"/><circle cx="583" cy="483" r="118"/>
+<path d="M188 483 L303 312 L378 482 Z M303 312 L520 313 L378 482 M520 313 L583 483 M510 277 L549 280 L567 266 M303 312 L287 267 M261 268 L323 268"/>
+<path d="M188 483 L298 322 L371 479 L199 484 M305 326 L509 326 L385 479 M520 313 L515 280 M535 356 L578 482" stroke-width="3"/>
+<circle cx="378" cy="483" r="30"/><circle cx="378" cy="483" r="14"/>
+<path d="M378 483 L398 519 L426 519 M378 483 L355 449 L329 449 M420 519 L432 519 M326 449 L313 449"/>
+<g stroke-width="2">
+<path d="M188 365 L188 601 M70 483 L306 483 M105 400 L271 566 M105 566 L271 400 M142 374 L234 592 M79 437 L297 529 M79 529 L297 437 M142 592 L234 374"/>
+<path d="M583 365 L583 601 M465 483 L701 483 M500 400 L666 566 M500 566 L666 400 M537 374 L629 592 M474 437 L692 529 M474 529 L692 437 M537 592 L629 374"/>
+<path d="M190 478 L379 477 M190 489 L379 489 M270 269 C269 251 282 247 298 250 L322 259 L322 269"/>
+</g></g></svg>

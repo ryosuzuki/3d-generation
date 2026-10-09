@@ -1,0 +1,429 @@
+[
+  {
+    "folder": "closed-outline-inflation",
+    "upstream": "https://github.com/ryosuzuki/sketch-3d-method-review",
+    "commit": "35c25a9361f47a439b507de0eebe0fe593610159",
+    "selection": "public source-only selection; synthetic authored contours/meshes allowed; generated learned asset fixtures and host reports excluded",
+    "files": [
+      {
+        "path": ".gitignore",
+        "bytes": 38,
+        "sha256": "8c399fc2542c0e06fe8fa5001efece7298cfd12d7704c89eb2f754a13b2fa1f3"
+      },
+      {
+        "path": "inflate.py",
+        "bytes": 6948,
+        "sha256": "1596a39029d9bcaf57970cd5be64d86600d169490404ed3338085335ea01bc60"
+      },
+      {
+        "path": "line-render.py",
+        "bytes": 2375,
+        "sha256": "7b61dd1abb852d6f9370c2730890a4a1f73c46679105ddfa9c652ab6fd7143c1"
+      },
+      {
+        "path": "paper-notes.md",
+        "bytes": 3294,
+        "sha256": "3141b7352539340c56e6b2f585a11efbdf610e68b11c09bf2a42025a907089c1"
+      },
+      {
+        "path": "requirements.txt",
+        "bytes": 321,
+        "sha256": "080d82f9fd50c05703a2b80c40b64fb7911b09bcef9ba99fb1592add906e91e2"
+      },
+      {
+        "path": "validate.py",
+        "bytes": 1915,
+        "sha256": "6bb97f5d0471107d7d8c42e05e74d944125006003dbdad8fdf628b76ba2917b4"
+      }
+    ],
+    "excluded_paths": [
+      "README.md",
+      "artifact-receipt.json",
+      "fetch-sources.py"
+    ]
+  },
+  {
+    "folder": "asset-provenance-adapter",
+    "upstream": "https://github.com/ryosuzuki/sketch-3d-asset-adapter",
+    "commit": "6e53af20820331b41cd6fea58316621e2824d646",
+    "selection": "public source-only selection; synthetic authored contours/meshes allowed; generated learned asset fixtures and host reports excluded",
+    "files": [
+      {
+        "path": ".gitignore",
+        "bytes": 32,
+        "sha256": "871ce3eed9d0b1686dc2d636a57dd3a0392a921d84d0e72597bea4aeb64cdd40"
+      },
+      {
+        "path": "adapter.js",
+        "bytes": 2519,
+        "sha256": "6527a937963f6bedf373fb2c6f42ec7ecf76ca8bac12bdc500dd979ee84c1b55"
+      },
+      {
+        "path": "adapter.py",
+        "bytes": 11483,
+        "sha256": "0f816871333cb0b4319543ce2d762b458e501e28772290b158a057098117b7e1"
+      },
+      {
+        "path": "check-js.mjs",
+        "bytes": 1370,
+        "sha256": "be0a13f2d1143eb246307b62edfe534c44e43ac06032b06a0a716acb46bafe36"
+      },
+      {
+        "path": "fixtures/contours.json",
+        "bytes": 6053,
+        "sha256": "bbbe71a21b90aec1446b7ae8d323894586b8b21ff6f1b2d79a15678cbfb6e7a6"
+      },
+      {
+        "path": "inflate.py",
+        "bytes": 6948,
+        "sha256": "1596a39029d9bcaf57970cd5be64d86600d169490404ed3338085335ea01bc60"
+      },
+      {
+        "path": "meshes/asymmetric-pear-renderer.json",
+        "bytes": 177885,
+        "sha256": "fa6524279c019ca90a3304718146acd1203cd8fe2821d14ba42afb4de888a7ac"
+      },
+      {
+        "path": "meshes/asymmetric-pear-schema.json",
+        "bytes": 178038,
+        "sha256": "52e8de3f40c6538108b1eb3f9ec5909dc03a9a4a33ca21e93c6cdc3b7ccb45c9"
+      },
+      {
+        "path": "meshes/asymmetric-pear.glb",
+        "bytes": 42256,
+        "sha256": "bb1aaa501d227cdf0d10544495d3eb7756e83abd64647126df4515d3eb9478bb"
+      },
+      {
+        "path": "meshes/deep-crescent-renderer.json",
+        "bytes": 112530,
+        "sha256": "02081722bc99ae619faf54f63bf62d3ae79e291043ce524700f5a1ea1645546d"
+      },
+      {
+        "path": "meshes/deep-crescent-schema.json",
+        "bytes": 116756,
+        "sha256": "c714639b2aef2b89c8e03143517e823dd48d5343fcc360242f7ead14f323a907"
+      },
+      {
+        "path": "meshes/deep-crescent.glb",
+        "bytes": 28428,
+        "sha256": "edfcd154d1663725012d4775828f31a96904a3b6fd288d52e4a29a790290ac19"
+      },
+      {
+        "path": "meshes/flattened-heart-renderer.json",
+        "bytes": 116254,
+        "sha256": "d9c31857fdd5dc3a1d43a141aa8f6269b957afc219357fbfa16a2e2e58eff302"
+      },
+      {
+        "path": "meshes/flattened-heart-schema.json",
+        "bytes": 116566,
+        "sha256": "a1a027da60ba96bccdc0a1f7dd7e68c53b0616df1750b03f8965b7ac3dbc7341"
+      },
+      {
+        "path": "meshes/flattened-heart.glb",
+        "bytes": 28428,
+        "sha256": "39098d0b22651c6cbda1274d62e45d3fc812994d3755267a7ce9cb32586bd5e0"
+      },
+      {
+        "path": "meshes/hooked-boomerang-renderer.json",
+        "bytes": 113207,
+        "sha256": "16a6d523c5186ec15e228b1bf33448c8b9994036c87e32aef9f5b7be168f54d8"
+      },
+      {
+        "path": "meshes/hooked-boomerang-schema.json",
+        "bytes": 117031,
+        "sha256": "c21363f0b9d37bfc1ff40e451852c6c63ed239f3da928c38a16bae2ecf88ef7a"
+      },
+      {
+        "path": "meshes/hooked-boomerang.glb",
+        "bytes": 28428,
+        "sha256": "72f6fc376a01952fb2d3bc78c2645a6a36fca919692857c6b62cbe344f1eca3b"
+      },
+      {
+        "path": "meshes/long-tail-fish-renderer.json",
+        "bytes": 147119,
+        "sha256": "2b7a70b032e0868f0d586d158e6e4d9f413a046e180cdc91d86c18e7ec43a86f"
+      },
+      {
+        "path": "meshes/long-tail-fish-schema.json",
+        "bytes": 147278,
+        "sha256": "44fe37ca833942b44657a14b1f9f6f32b35971654b40c3accdee89cd84b3f6a8"
+      },
+      {
+        "path": "meshes/long-tail-fish.glb",
+        "bytes": 35344,
+        "sha256": "2a738809563e313520cd6dcbd15564900f693682bc322ccd7ecba74ac4da956d"
+      },
+      {
+        "path": "meshes/narrow-neck-key-renderer.json",
+        "bytes": 210908,
+        "sha256": "fa7ae7b8ce240b9a3e28dd2e925942b9616e9164561f78e1a2cdc7b0feac5756"
+      },
+      {
+        "path": "meshes/narrow-neck-key-schema.json",
+        "bytes": 211167,
+        "sha256": "9b6e0ea6229ddb7508c9e71bdfe61b1bf7040905a5fe90d6f387dd10bbd9f6b2"
+      },
+      {
+        "path": "meshes/narrow-neck-key.glb",
+        "bytes": 49164,
+        "sha256": "6aae9d975dfd46ed2849069016ca49a70cc9f1e723c53f52b0b842c9cada8eb2"
+      },
+      {
+        "path": "meshes/narrow-neck-key.obj",
+        "bytes": 88069,
+        "sha256": "8fac9c1331285392ffc744503e6dc32271909b000f20145621a525d93604cd54"
+      },
+      {
+        "path": "meshes/offset-mushroom-renderer.json",
+        "bytes": 110871,
+        "sha256": "48fc2140577b49706754f97f0c204fd1c33d6e74272c59dfb27bd226de2a3a04"
+      },
+      {
+        "path": "meshes/offset-mushroom-schema.json",
+        "bytes": 116730,
+        "sha256": "1dffab92dfac9b38916322e49345241a0440cf486b747e9a110a40501be4a45f"
+      },
+      {
+        "path": "meshes/offset-mushroom.glb",
+        "bytes": 28424,
+        "sha256": "eb014ce483ab2d62c463d1776192f1bd961a242d334be00f0e5244ae81ba6c64"
+      },
+      {
+        "path": "meshes/stepped-mountain-renderer.json",
+        "bytes": 98001,
+        "sha256": "6a9499c8a1767b3e3a0231c835859349d2cfcf0e0f8eec810322c47b1f669916"
+      },
+      {
+        "path": "meshes/stepped-mountain-schema.json",
+        "bytes": 102106,
+        "sha256": "472cbde5bd6f54c0ae0e63ab838c2816b6efbf791de9760d95ccd8395726c283"
+      },
+      {
+        "path": "meshes/stepped-mountain.glb",
+        "bytes": 24972,
+        "sha256": "d252d2c5237851a6499314443e1be9b8c8d0ca2f363e43857f5537ad35a091c9"
+      },
+      {
+        "path": "meshes/three-prong-crown-renderer.json",
+        "bytes": 71832,
+        "sha256": "855d4623f31135989488390c98ddd8941f6544db4c9750e4dcbfb97351a2658d"
+      },
+      {
+        "path": "meshes/three-prong-crown-schema.json",
+        "bytes": 72247,
+        "sha256": "100e37fbc2cb13627e9a3bdf6c89f6b39d5637703636571c20e266e2c7928b96"
+      },
+      {
+        "path": "meshes/three-prong-crown.glb",
+        "bytes": 18060,
+        "sha256": "789dc982a8dfe82473ac9f74f25d3b8d05b49fbc99ff3e54af2c5bb2087f1f9e"
+      },
+      {
+        "path": "meshes/zigzag-lightning-renderer.json",
+        "bytes": 70369,
+        "sha256": "f4ba7a7e4a448e7e4833e1bf985d1533fa26464ee902e7af597a5f0062b88520"
+      },
+      {
+        "path": "meshes/zigzag-lightning-schema.json",
+        "bytes": 72264,
+        "sha256": "df4c0c3ec3ca75c6876f1fad8a0f148b08c0ae229f0650f79ef7a1dad8e696c3"
+      },
+      {
+        "path": "meshes/zigzag-lightning.glb",
+        "bytes": 18060,
+        "sha256": "bd01c2087cad59e4e5d2e524e3778d093a7ffc023ef525559df93d64d0742287"
+      },
+      {
+        "path": "package.json",
+        "bytes": 107,
+        "sha256": "a514f2becfe37a1ded187520d89e6cb7804969bbcfb57372567fb4c957fb37d7"
+      },
+      {
+        "path": "requirements.txt",
+        "bytes": 60,
+        "sha256": "6d4cbb5cace1914b5bae641da7cb54256e188ad88b6fb8fa20ac214415472f1b"
+      },
+      {
+        "path": "schema.json",
+        "bytes": 1371,
+        "sha256": "277a30c4d990ddc3d5c0725f5ef52b34c968a78fd254268391867c0c4dc34b19"
+      }
+    ],
+    "excluded_paths": [
+      "README.md",
+      "acceptance-summary.json",
+      "fixtures/defective-asset-provenance.json",
+      "fixtures/fish-original.glb",
+      "fixtures/fish-stroke.svg",
+      "fixtures/fish.json",
+      "fixtures/owl-defective-display.glb",
+      "fixtures/owl-defective-original.glb",
+      "fixtures/owl-original.glb",
+      "fixtures/owl-stroke.svg",
+      "fixtures/owl.json",
+      "orientation_study.py",
+      "proof.mjs",
+      "run_acceptance.py"
+    ]
+  },
+  {
+    "folder": "neural-image-to-3d",
+    "upstream": "https://github.com/ryosuzuki/sketch-3d-gpu-experiments",
+    "commit": "7eeec09e4e9baaa3a79ef786da69b1bd1f8916fd",
+    "selection": "public source-only selection; synthetic authored contours/meshes allowed; generated learned asset fixtures and host reports excluded",
+    "files": [
+      {
+        "path": ".gitignore",
+        "bytes": 152,
+        "sha256": "5ebbe312fd569ab6549aadbe4b83caeb48d52d82cc68f984ce94c0caf387a979"
+      },
+      {
+        "path": "bicycle-stroke-fixture.svg",
+        "bytes": 1351,
+        "sha256": "3b9915db09321b7b81b056da3a7f7be34da10a720bc910cc2428495ac766d35c"
+      },
+      {
+        "path": "export-shape-mobile.py",
+        "bytes": 1440,
+        "sha256": "ef5cb3bc32d4421fae68a9eca795dfd4173fe9fece0d86dc19741922ab6545ae"
+      },
+      {
+        "path": "fish-stroke-fixture.svg",
+        "bytes": 1666,
+        "sha256": "6cdd96499eae627e52a3df90ee9fa2a626b60d26dc30ab6eb1a1e6643e90e919"
+      },
+      {
+        "path": "hunyuan-license.txt",
+        "bytes": 17829,
+        "sha256": "94259df223918a5733677965c1bfe1774a2dba25042d9c3b47a3418ea6c1f324"
+      },
+      {
+        "path": "make-portable-texture-glb.py",
+        "bytes": 4280,
+        "sha256": "1f4efd25ac3bf1fc8f92e627d94c76b046e0b7869d985ce5bb21a5a69c8f73e4"
+      },
+      {
+        "path": "owl-stroke-fixture.svg",
+        "bytes": 1826,
+        "sha256": "5b831c6f1354ed97084618af184ff93ea004294edc3c01db3c6ffdd24a00dc23"
+      },
+      {
+        "path": "prepare-bridge-inputs.py",
+        "bytes": 3974,
+        "sha256": "3d7150f7ceaf8f38d7a570fac23ab718f8bf340b7e475ba3edea7638f82bfafa"
+      },
+      {
+        "path": "prepare-closed-outline-alpha.py",
+        "bytes": 1823,
+        "sha256": "1419e6817111ec6c2ba66300203d69e6fcf487e96dc2ad26a2f422de285b9115"
+      },
+      {
+        "path": "prepare-stroke-fixtures.py",
+        "bytes": 1032,
+        "sha256": "04e49ad54f24f4131a3c31b1fd56910ab04a921b942078006f1e6546a307ed57"
+      },
+      {
+        "path": "project-source-texture.py",
+        "bytes": 2811,
+        "sha256": "08d7c8b385bc257bf802049affefae97b8154e97708b02d27b60f975a6f3cd93"
+      },
+      {
+        "path": "requirements-mac-lock.txt",
+        "bytes": 1405,
+        "sha256": "c37d6f0c4d66b961b8634863c8883c3416462fbe0c84c0f27778e0df46a779ef"
+      },
+      {
+        "path": "run-controlnet-bridge.py",
+        "bytes": 7099,
+        "sha256": "bb5483bf4facf71096e84d529319b84b8d1908af4b23ae2fd9ca3f19ac3e14a7"
+      },
+      {
+        "path": "run-neural-color-fusion.py",
+        "bytes": 4279,
+        "sha256": "a8e1f7173a8adeb9c08c46daf943261400336f92ac063bbdec6e39a627173376"
+      },
+      {
+        "path": "run-shape.py",
+        "bytes": 4986,
+        "sha256": "fc316d8717cca0d1cabd79ee132698c36c1c3fc928f88362cf400e3332176895"
+      },
+      {
+        "path": "run-triposr.py",
+        "bytes": 4487,
+        "sha256": "00afa8522ddf4c93fa0384d4648099739b95798bdeb57b9563db511c7c1735fe"
+      },
+      {
+        "path": "triposr-license.txt",
+        "bytes": 1080,
+        "sha256": "ade0a66629bdd7e01e46b3296b3851cff0fd27989bca53da470ad6e96ed620fb"
+      }
+    ],
+    "excluded_paths": [
+      "README.md",
+      "experiment-checkpoint.json",
+      "experiment-program.json",
+      "model-route-research.md",
+      "package-artifact-checkpoint.py",
+      "package-rich-checkpoint.py",
+      "prepare-centered-strokes.py",
+      "prepare-contour-surrogates.py",
+      "prepare-extra-stroke.py",
+      "prepare-inputs.py",
+      "prepare-public-probe-batch.py",
+      "prepare-public-quickdraw.py",
+      "render-generic-contact-sheet.cjs",
+      "render-mesh.cjs",
+      "render-probe-contact-sheets.cjs",
+      "requirements-space-api-lock.txt",
+      "run-clip-sketch-classification.py",
+      "run-sketch-identification.py",
+      "run-trellis2-public-space.py",
+      "validate-artifacts.py",
+      "verify-release-checkpoint.py"
+    ]
+  },
+  {
+    "folder": "typed-schema-to-mesh",
+    "upstream": "https://github.com/ryosuzuki/avatar-generalized-sketch-v2",
+    "commit": "bf6b71848f7957bc87ffebc2666fb9ded4e47062",
+    "selection": "public source-only selection; synthetic authored contours/meshes allowed; generated learned asset fixtures and host reports excluded",
+    "files": [
+      {
+        "path": "geometry.js",
+        "bytes": 8316,
+        "sha256": "38e90e2923bcf5ae4e87898299f1fad938f39e10649fc8c0c1e4334c449ed926"
+      },
+      {
+        "path": "mesh-export.mjs",
+        "bytes": 514,
+        "sha256": "8ccaf78884a4dadb4cdda6e33540dada6ebc5fb29cdca1d7650c34eac433aed7"
+      },
+      {
+        "path": "schema.py",
+        "bytes": 3298,
+        "sha256": "97ad64328df1b7995842127b48a81172f66638e0c3bf9685ffd7413e2deec6f4"
+      },
+      {
+        "path": "requirements.txt",
+        "bytes": 37,
+        "sha256": "c3a02dc462ef722b177edaab36bf0f75ba10e5d75d68ccc73529d6a9555421e8"
+      },
+      {
+        "path": "vendor/three.module.js",
+        "bytes": 1314681,
+        "sha256": "ce1fa418de16a19495a9f72495580e3015d7745c296d3ce0485897f902ddedfb"
+      },
+      {
+        "path": "vendor/three.core.js",
+        "bytes": 1458113,
+        "sha256": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6"
+      },
+      {
+        "path": "vendor/three-license.txt",
+        "bytes": 1081,
+        "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+      }
+    ],
+    "excluded_paths": []
+  }
+]

@@ -1,0 +1,15 @@
+.venv/
+hunyuan-upstream/
+triposr-upstream/
+__pycache__/
+*.pyc
+node_modules/
+*.glb
+*.obj
+*.ply
+*.png
+*.jpg
+*.mp4
+*.log
+.api-venv/
+.scribble-model-cache/

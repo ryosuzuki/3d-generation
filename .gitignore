@@ -1,0 +1,9 @@
+**/.venv/
+**/node_modules/
+**/__pycache__/
+**/output/
+**/outputs/
+**/*-upstream/
+**/.scribble-model-cache/
+**/.api-venv/
+.DS_Store

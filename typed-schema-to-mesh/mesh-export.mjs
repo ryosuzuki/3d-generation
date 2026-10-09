@@ -1,0 +1,2 @@
+import fs from 'fs';import {buildScene}from './geometry.js';
+const g=buildScene(JSON.parse(fs.readFileSync(process.argv[2],'utf8'))),vertices=[],faces=[];g.traverse(o=>{if(!o.isMesh)return;const offset=vertices.length,p=o.geometry.attributes.position,idx=o.geometry.index;for(let i=0;i<p.count;i++)vertices.push([p.getX(i),p.getY(i),p.getZ(i)]);const n=idx?idx.count:p.count;for(let i=0;i<n;i+=3)faces.push([0,1,2].map(k=>offset+(idx?idx.getX(i+k):i+k)));});process.stdout.write(JSON.stringify({vertices,faces}));
