@@ -8,4 +8,4 @@ python3 -m venv .venv
 .venv/bin/python validate.py --output output/example
 ```
 
-独立CPU実装。元READMEの入力仕様/拒否条件/限界を参照。outputはGit対象外。
+Independent CPU implementation. See the source notes and scripts for input requirements, rejection conditions, and limitations. Generated output is excluded from Git.

@@ -1,22 +1,32 @@
-# 3D Generation — アプローチ別実装集
+# 3D Generation — implementations by approach
 
-既存リポジトリは変更せず、確定commitから公開用ソースを選別したpublicカテゴリ集。各フォルダを独立した作業ディレクトリとして使えます。リンク集やsubmoduleではなくソース実体を収録しています。
+Public source selected from pinned commits, without modifying the original repositories. Each folder is an independent working directory containing actual source, not just links or submodules.
 
-| フォルダ | 入力 → 出力 | 実行環境 / 状態 | 限界 |
+## Demos and runnable examples
+
+These are **local runnable examples**, not public hosted applications or recorded demonstrations. No verified public recording of these exact four implementations is currently linked.
+
+- [Closed-outline inflation: run and validate synthetic examples](closed-outline-inflation/RUN.md) — CPU Python, exports GLB/OBJ.
+- [Asset adapter: run ten bundled synthetic cases](asset-provenance-adapter/RUN.md) — CPU Python and JavaScript transformation checks.
+- [Typed schema to mesh: run the bundled example](typed-schema-to-mesh/RUN.md) — `node mesh-export.mjs example.json`, no API or model required.
+- [Neural image/sketch to 3D: setup and inference commands](neural-image-to-3d/RUN.md) — requires model downloads and a compatible local environment; not a one-click hosted demo.
+- For related recorded room-interaction demos, see the [Digital Twin demo catalog](https://github.com/ryosuzuki/digital-twin#demo-links). Those recordings are different implementations, not evidence of these generation methods.
+
+| Folder | Input → output | Runtime / status | Limitations |
 |---|---|---|---|
-| `closed-outline-inflation` | 閉じた輪郭 → GLB/OBJ | CPU Python・決定論的・実装済み | 対称厚み。意味/隠れ面/rigの推定なし |
-| `asset-provenance-adapter` | 輪郭/既存mesh → 共通asset schema | CPU Python + browser JS・検証用fixture入り | 自動修復/一般形状推論/physicsなし |
-| `neural-image-to-3d` | 画像 → TripoSR/Hunyuan、sketch→ControlNet画像→mesh | Apple MPS実験コード、モデル/環境は別途復元 | 不可視面は推定。誤認・形状逸脱あり |
-| `typed-schema-to-mesh` | 明示schema → indexed mesh | Node・依存vendor内蔵・API不要 | AI生成schemaサーバーとavatarは別カテゴリ |
+| `closed-outline-inflation` | Closed outline → GLB/OBJ | CPU Python; deterministic; implemented | Symmetric thickness; no semantic, hidden-surface, or rig inference |
+| `asset-provenance-adapter` | Outline/existing mesh → common asset schema | CPU Python + browser JS; validation fixtures included | No automatic repair, general shape inference, or physics |
+| `neural-image-to-3d` | Image → TripoSR/Hunyuan; sketch → ControlNet image → mesh | Experimental Apple MPS source; restore models/environment separately | Unseen surfaces inferred; semantic and shape errors possible |
+| `typed-schema-to-mesh` | Explicit schema → indexed mesh | Node; vendored dependencies; no API | AI schema server and avatars belong to another category |
 
-## 最初に動かす
+## Get started
 
-各フォルダの `RUN.md` を参照。private実験ログと個人データは含めません。外部API/モデル生成は今回実行していません。
+See each folder’s `RUN.md`. Private experiment logs and personal data are excluded. External API calls and model inference were not performed during source consolidation or English documentation cleanup.
 
-## ソース・復元・ライセンス
+## Source, restoration, and licenses
 
-`provenance.json` に元repo、immutable commit、コピーした全ファイルのSHA256とbytesがあります。`python3 verify-snapshots.py` で完全性を確認できます。元repoは変更せず、ソースとsynthetic fixtureのみpublic公開。GPUモデルの重み、大量生成結果、部屋/人物のデータは含めません。
+`provenance.json` records upstream repositories, immutable commits, and the SHA-256 digests and byte sizes of copied files. Run `python3 verify-snapshots.py` to check integrity. The original repositories are unchanged; only source and synthetic fixtures are public here. GPU model weights, bulk generated outputs, and room/person data are excluded.
 
-`RESTORE.md` に公開版の依存・入力assetの準備方法。MIT Three.js / TripoSRとTencent Hunyuan community licenseは元ファイルを保持。その他自作コードは上流でライセンス指定なしのため新たな包括ライセンスを付与しません。参照した研究コード・モデルのライセンスがすべて同じという意味ではありません。
+`RESTORE.md` explains public dependencies and input asset preparation. Original MIT Three.js / TripoSR notices and the Tencent Hunyuan community license are retained. Other custom upstream code has no explicit license; this repository does not grant a new blanket license or imply that all referenced research code and models share the same terms.
 
-関連カテゴリ: [image-tracking](https://github.com/ryosuzuki/image-tracking)、[digital-twin](https://github.com/ryosuzuki/digital-twin)、[3d-avatar](https://github.com/ryosuzuki/3d-avatar)。最後のカテゴリ側がavatar UIとquestion→schemaの統合アプリを所有します。
+Related categories: [image-tracking](https://github.com/ryosuzuki/image-tracking), [digital-twin](https://github.com/ryosuzuki/digital-twin), and [3d-avatar](https://github.com/ryosuzuki/3d-avatar). The avatar category owns the avatar UI and integrated question-to-schema application.

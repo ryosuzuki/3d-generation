@@ -15,9 +15,9 @@ PYTORCH_ENABLE_MPS_FALLBACK=1 .venv/bin/python run-triposr.py --output output --
 PYTORCH_ENABLE_MPS_FALLBACK=1 .venv/bin/python run-shape.py --output output --ids my-object --device mps --steps 30 --resolution 256
 ```
 
-Apple MPS実験用ソース。画像モデル重みは固定revisionで取得。初回download/実行時間とmemoryは環境依存。不可視面を推測し、意味/輪郭/機械的正しさを保証しない。TripoSRはvertex color、Hunyuan shapeは無texture。
+Experimental Apple MPS source. Image-model weights use pinned revisions. Initial download time, inference time, and memory requirements depend on the environment. Unseen surfaces are inferred; semantic, silhouette, and mechanical correctness are not guaranteed. TripoSR produces vertex colors; the Hunyuan shape pipeline produces untextured geometry.
 
-Sketch bridgeは付属の手書きsynthetic SVG → ControlNet画像 → foreground → 3D。入力はユーザーの人間描画と混同しない。
+The sketch bridge converts the bundled hand-authored synthetic SVG fixtures to ControlNet images, extracted foregrounds, and then 3D. These fixtures are not user-study participants’ drawings.
 ```sh
 .venv/bin/python prepare-stroke-fixtures.py output
 PYTORCH_ENABLE_MPS_FALLBACK=1 .venv/bin/python run-controlnet-bridge.py --output output --scale .65
