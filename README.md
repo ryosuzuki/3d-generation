@@ -4,7 +4,9 @@ Public source selected from pinned commits, without modifying the original repos
 
 ## Demos and runnable examples
 
-These are **local runnable examples**, not public hosted applications or recorded demonstrations. No verified public recording of these exact four implementations is currently linked.
+**[Run the browser companion — no installation required](https://ryosuzuki.github.io/image-tracking/reality-to-digital/mr-cpu-mini-lab.html).** This simplified CPU-only teaching companion previews outline-inflation output, exports a matching low-resolution OBJ, and saves manually authored room JSON. It is not the neural generation pipeline or a browser port of all four implementations below.
+
+The four full implementations below are **local runnable examples**, not hosted applications. No verified public recording of these exact four implementations is currently linked.
 
 - [Closed-outline inflation: run and validate synthetic examples](closed-outline-inflation/RUN.md) — CPU Python, exports GLB/OBJ.
 - [Asset adapter: run ten bundled synthetic cases](asset-provenance-adapter/RUN.md) — CPU Python and JavaScript transformation checks.
